@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>React Basics</title>
+  </head>
+  <script src="react-bsics.js"></script>
+
+  <body>
+    <div class="js-container"></div>
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    
+    <script type="text/babel">
+        const button =<button>Click me</button>
+        const paragraph = <p>Helooooo </p>
+
+    const div =(
+        <div> 
+          <button>Click me</button>
+           <p>Helooooo {2-2}</p>
+        </div>
+    );
+      const container = document.querySelector('.js-container');
+      ReactDOM.createRoot(container).render(div);
+    </script>
+  </body>
+</html>
+
+
+
+<!-- react is an external libary that allows us to build user interfaces using components. it provides a way to create reusable UI components and manage the state of our application efficiently. react uses a virtual DOM to optimize rendering and improve performance. it is widely used for building web applications and has a large community of developers and resources available.
+
+ babel is a transpiler that converts jsx to js 
+
+jsx is a syntax extension for js that allows us to write html like code in js files. it makes it easier to create and manage the user interface of our react applications.
+
+querySelector is a method that allows us to select an element from the DOM using a CSS selector. in this case, we are selecting the element with the class name 'js-container' and storing it in the variable 'container'.
+
+createRoot is a method from the ReactDOM library that creates a root for rendering a React component. it takes a DOM element as an argument and returns a root object.
+
+render is a method of the root object that renders a React component into the DOM. in this case, we are rendering a simple string 'Welcome to SuperSimpleDev React Course' into the container element we selected earlier.
+
+DOM stands for Document Object Model, which is a programming interface for web documents. it represents the structure of a web page as a tree of objects, allowing developers to manipulate and interact with the content and structure of the page using JavaScript.
+
+web browsers does not understand jsx syntax, so we need to use babel to transpile our jsx code into regular JavaScript that browsers can understand. 
+-->
