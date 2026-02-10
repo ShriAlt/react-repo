@@ -14,13 +14,58 @@
     <script src="https://unpkg.com/supersimpledev/babel.js"></script>
     
     <script type="text/babel">
-      function sendMessage(){
-        chatMessages.push({
+
+function ChatMessages(){
+
+      const chatMessage =[{
+        message:"Hi ChatBot" ,
+        sender : "User" ,
+        id:"id1"
+      },
+      {
+        message:"Hello ? " ,
+        sender : "Robot",
+        id:"id2"
+       },
+        {
+          message:"How are you ? " ,
+          sender : "User",
+          id:"id3"
+        },
+        {
           message:"I am fine, thank you ! " ,
           sender : "Robot",
-          id: crypto.randomUUID()
-        });
+          id:"id4"
+        }
+
+      ];
+     const array = React.useState(chatMessage);// to make the component re-render when the state changes
+      const chatMessages= array[0];
+      const setChatMessages = array[1]; // to update the state and re-render the component when the state changes also a update function
+
+      return(
+        <> 
+          {chatMessage.map((chatMessage)=>{
+        return(
+          <ChatMessage
+            message={chatMessage.message} 
+            sender={chatMessage.sender}
+            key = {chatMessage.id} />
+        );
+      })}
+        </>
+      );
+    }
+      function sendMessage(){[
+       ...ChatMessages,
+       {
+        message:"I am fine, thank you ! " ,
+        sender : "Robot",
+        id:crypto.randomUUID()
+       }
+      ]
       };
+
     
     function ChatInput(){
       return(
@@ -63,43 +108,7 @@
 
  
 
-    function ChatMessages(){
-      const chatMessages =[{
-        message:"Hi ChatBot" ,
-        sender : "User" ,
-        id:"id1"
-      },
-      {
-        message:"Hello ? " ,
-        sender : "Robot",
-        id:"id2"
-       },
-        {
-          message:"How are you ? " ,
-          sender : "User",
-          id:"id3"
-        },
-        {
-          message:"I am fine, thank you ! " ,
-          sender : "Robot",
-          id:"id4"
-        }
-
-      ];
-       
-      return(
-        <> 
-          {chatMessages.map((chatMessage)=>{
-        return(
-          <ChatMessage
-            message={chatMessage.message} 
-            sender={chatMessage.sender}
-            key = {chatMessage.id} />
-        );
-      })}
-        </>
-      );
-    }
+    
 
 
 
