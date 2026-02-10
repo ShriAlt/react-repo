@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment</title>
+</head>
+
+<body>
+    
+    <div class="js-container"></div>
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+
+    <script type="text/babel">
+        const container = document.querySelector('.js-container');
+
+        function WelCome(){
+            return(
+            <p> Hello Welcome to my website !!</p>
+            );
+        };
+        function EmailInput(){
+            return(
+                <div>
+                <input placeholder="Enter your email" size="30" />
+                </div>
+            )
+        }
+        function PasswordInput(){
+            return(
+                <div>
+                <input placeholder="Enter your Password" type="Password" size="30" />
+                </div>
+            )
+        }
+
+        
+        function LoginAndSignUpButton(){
+
+            return(
+            <>
+            <button> Login </button>
+            <button> Sign Up </button>
+            </>
+            );
+        };
+
+        function LoginForm(){
+            return(
+                <>
+                <EmailInput/>
+                <PasswordInput/>
+                <LoginAndSignUpButton/>
+                </>
+            );
+        }
+    
+        function App() {
+            return( 
+                <>
+                <WelCome/>
+                <LoginForm/>
+                </>
+            );
+        };
+
+        ReactDOM.createRoot(container).render(<App/>)
+
+    </script>
+    
+</body>
+</html>
