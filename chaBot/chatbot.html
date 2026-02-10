@@ -14,6 +14,13 @@
     <script src="https://unpkg.com/supersimpledev/babel.js"></script>
     
     <script type="text/babel">
+      function sendMessage(){
+        chatMessages.push({
+          message:"I am fine, thank you ! " ,
+          sender : "Robot",
+          id: crypto.randomUUID()
+        });
+      };
     
     function ChatInput(){
       return(
@@ -22,12 +29,23 @@
             placeholder="Send a message" 
            size="30" 
           />
-          <button>Send</button>
+          <button onClick ={sendMessage}>Send</button>
         </>
       );
     };
 
     function ChatMessage({message,sender}){ // object destructuring in function parameter
+      return(
+        <div>
+          {sender === 'Robot' &&( 
+            <img src="robot.png" width="50" />
+          ) }
+          {message}
+          { sender === 'User' &&
+          <img src="user.png" width="50" />}
+        </div>
+      );
+    };
 
     //  const message = props.message;
     //  const sender = props.sender;
@@ -43,41 +61,65 @@
       );
      } */
 
-      return(
-        <div>
-          {sender === 'robot' &&( 
-            <img src="robot.png" width="50" />
-          ) }
-          {message}
-          { sender === 'user' &&
-          <img src="user.png" width="50" />}
-        </div>
-      );
-    };
+ 
 
-    function App(){
+    function ChatMessages(){
+      const chatMessages =[{
+        message:"Hi ChatBot" ,
+        sender : "User" ,
+        id:"id1"
+      },
+      {
+        message:"Hello ? " ,
+        sender : "Robot",
+        id:"id2"
+       },
+        {
+          message:"How are you ? " ,
+          sender : "User",
+          id:"id3"
+        },
+        {
+          message:"I am fine, thank you ! " ,
+          sender : "Robot",
+          id:"id4"
+        }
+
+      ];
+       
       return(
         <> 
-          <ChatInput/>
-
+          {chatMessages.map((chatMessage)=>{
+        return(
           <ChatMessage
-           message="Hi ChatBot" 
-           sender="user" />
-          <ChatMessage 
-            message="Hello ? " 
-            sender ="robot" />
+            message={chatMessage.message} 
+            sender={chatMessage.sender}
+            key = {chatMessage.id} />
+        );
+      })}
         </>
       );
     }
-        
+
+
+
   
+    function App(){
+      return(
+        <>
+      <ChatInput/>
+      <ChatMessages/>
+      </>
+    )
+    };
+
       const container = document.querySelector('.js-container');
-      ReactDOM.createRoot(container).render(<App/>
-      );
+      ReactDOM.createRoot(container).render(<App/> );
     </script>
   </body>
 </html>
 <!-- components = piece of a website -->
 <!-- props = properties that we can pass to a component to make it dynamic which makes it resuseable -->
+<!-- event Handlers -> runs the  function when a event occures or when you interact    -->
 
 
